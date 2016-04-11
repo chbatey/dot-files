@@ -67,6 +67,10 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 
-map <Leader>n :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+nmap <silent> <C-t> :NERDTreeToggle<CR>
+nmap <silent> <F2> :NERDTreeFind<CR>
 
 
