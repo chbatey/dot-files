@@ -30,27 +30,11 @@ set completeopt+=longest
 set t_Co=256
 set cmdheight=1
 set laststatus=2
-map <Leader>s :SyntasticToggleMode<CR>
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
-
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-
-if has("gui_running")
-  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-  endif
-endif
 
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -58,8 +42,6 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 noremap <leader>b<space> :CtrlPBuffer<cr>
 let g:ctrlp_custom_ignore = '\v[\/]dist$'
 let g:ctrlp_show_hidden = 1
-
-
 
 let g:haskell_tabular = 1
 
@@ -73,4 +55,9 @@ autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
 
+" leader mappings
+nnoremap <Leader>w :w<CR>
 
+
+" Added for Golang
+nmap <F8> :TagbarToggle<CR>
