@@ -32,6 +32,7 @@ set cmdheight=1
 set laststatus=2
 map <Leader>s :SyntasticToggleMode<CR>
 
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
@@ -60,7 +61,6 @@ let g:ctrlp_custom_ignore = '\v[\/]dist$'
 let g:ctrlp_show_hidden = 1
 
 
-
 let g:haskell_tabular = 1
 
 vmap a= :Tabularize /=<CR>
@@ -73,4 +73,4 @@ autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
 
-
+noremap <ENTER> :!<UP><ENTER>
