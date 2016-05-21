@@ -51,6 +51,8 @@ vmap a- :Tabularize /-><CR>
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
 
+noremap <ENTER> :!<UP><ENTER>
+
 " leader mappings
 nnoremap <Leader>w :w<CR>
 
