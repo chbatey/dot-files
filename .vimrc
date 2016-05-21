@@ -27,7 +27,6 @@ set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
-set t_Co=256
 set cmdheight=1
 set laststatus=2
 
@@ -58,14 +57,21 @@ nnoremap <Leader>w :w<CR>
 
 " Added for Golang
 nmap <F8> :TagbarToggle<CR>
+
+" Custom for vim-go
+au FileType go nmap <leader>j <Plug>(go-def-pop)
+
+" Defaults for vim-go
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+au FileType go nmap <Leader>dd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>db <Plug>(go-def-pop)
 
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
