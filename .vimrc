@@ -30,8 +30,13 @@ set completeopt+=longest
 set cmdheight=1
 set laststatus=2
 
+" Folding
+set foldmethod=indent
+set foldlevel=99
+
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
+
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
@@ -56,7 +61,6 @@ noremap <ENTER> :!<UP><ENTER>
 " leader mappings
 nnoremap <Leader>w :w<CR>
 
-
 " Added for Golang
 nmap <F8> :TagbarToggle<CR>
 
@@ -73,6 +77,7 @@ au FileType go nmap <Leader>dd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
 au FileType go nmap <Leader>db <Plug>(go-def-pop)
 
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -84,3 +89,10 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Python dev environment
