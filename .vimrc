@@ -6,6 +6,8 @@ colorscheme badwolf
 syntax on
 filetype plugin indent on
 
+noremap <Leader>s :update<CR>
+
 set nocompatible
 set number
 set nowrap
