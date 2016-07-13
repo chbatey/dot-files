@@ -1,14 +1,41 @@
-let mapleader = "\<Space>"
+" Set up vundle
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here 
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/badwolf'
+Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
+Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
+Plugin 'tfnico/vim-gradle'
+
+" All of your Plugins must be added before the following line
+call vundle#end()          
+filetype plugin indent on 
+" Vundle is now finished
+
+
+let mapleader = "\<space>"
 inoremap jk <esc>
 
-execute pathogen#infect()
 colorscheme badwolf 
 syntax on
-filetype plugin indent on
 
 noremap <Leader>s :update<CR>
 
-set nocompatible
 set number
 set nowrap
 set showmode
@@ -58,22 +85,22 @@ vmap a- :Tabularize /-><CR>
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
 
-noremap <ENTER> :!<UP><ENTER>
-
 " leader mappings
 nnoremap <Leader>w :w<CR>
 
 " Added for Golang
 nmap <F8> :TagbarToggle<CR>
 
+let g:go_fmt_command = "goimports"
+
 " Custom for vim-go
-au FileType go nmap <leader>j <Plug>(go-def-pop)
+au FileType go nmap <Leader>j <Plug>(go-def-pop)
 
 " Defaults for vim-go
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
 
 au FileType go nmap <Leader>dd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
