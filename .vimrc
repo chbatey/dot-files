@@ -21,7 +21,6 @@ Plugin 'fatih/vim-go'
 Plugin 'tfnico/vim-gradle'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'benmills/vimux'
-Plugin 'Twinside/vim-hoogle'
 
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'ervandew/supertab'
