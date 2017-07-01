@@ -23,6 +23,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tfnico/vim-gradle'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'benmills/vimux'
+Plugin 'Twinside/vim-hoogle'
 
 " All of your Plugins must be added before the following line
 call vundle#end()          
@@ -67,6 +69,26 @@ set foldlevel=99
 
 " Haskell
 
+augroup ft_haskell
+  au!
+
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+  function! RunGhci(type)
+      call VimuxRunCommand(" stack ghci && exit")
+      if a:type
+          call VimuxSendText(":l " . bufname("%"))
+          call VimuxSendKeys("Enter")
+      endif
+  endfunction
+
+  au FileType haskell nmap <silent><buffer> <leader>gg :call RunGhci(1)<CR>
+  au FileType haskell nmap <silent><buffer> <leader>gs :call RunGhci(0)<CR>
+
+  au FileType haskell nnoremap K :HoogleInfo<CR>
+
+augroup END
+
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 
@@ -85,7 +107,6 @@ let g:haskell_tabular = 1
 
 " Disable haskell-vim omnifunc
 let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:necoghc_enable_detailed_browse = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
