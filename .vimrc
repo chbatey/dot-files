@@ -24,13 +24,16 @@ Plugin 'benmills/vimux'
 
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'ervandew/supertab'
+
+" Haskell 
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
-Plugin 'enomsg/vim-haskellConcealPlus'
 Plugin 'Twinside/vim-hoogle'
 Plugin 'mpickering/hlint-refactor-vim'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'enomsg/vim-haskellConcealPlus'
 
+" Scala 
 Plugin 'ensime/ensime-vim'
 Plugin 'derekwyatt/vim-scala'
 
@@ -100,13 +103,12 @@ augroup ft_haskell
 
   au FileType haskell nnoremap K :HoogleInfo<CR>
 
+  map <silent> tw :GhcModTypeInsert<CR>
+  map <silent> ts :GhcModSplitFunCase<CR>
+  map <silent> tc :GhcModCheck<CR>
+  map <silent> tq :GhcModType<CR>
+  map <silent> te :GhcModTypeClear<CR>
 augroup END
-
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -135,7 +137,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " Ctrl p
 
 noremap <leader>b<space> :CtrlPBuffer<cr>
-let g:ctrlp_custom_ignore = '\v[\/]dist$'
+let g:ctrlp_custom_ignore = '\v[\/]dist$|.*\.class'
 let g:ctrlp_show_hidden = 1
 
 
