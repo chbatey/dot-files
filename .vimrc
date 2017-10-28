@@ -37,6 +37,10 @@ Plugin 'enomsg/vim-haskellConcealPlus'
 Plugin 'ensime/ensime-vim'
 Plugin 'derekwyatt/vim-scala'
 
+" General
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
+
 Plugin 'vim-scripts/VimClojure'
 Plugin 'tpope/vim-fireplace'
 
@@ -49,6 +53,7 @@ filetype plugin indent on
 " Vundle is now finished
 
 let mapleader = "\<space>"
+let maplocalleader = "\\"
 inoremap jk <esc>
 
 colorscheme badwolf 
@@ -133,6 +138,9 @@ let g:haskellmode_completion_ghc = 1
 let g:necoghc_enable_detailed_browse = 1
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+let hscoptions="𝐌"
+
 
 " Ctrl p
 
