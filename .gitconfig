@@ -1,0 +1,48 @@
+[core]
+        whitespace = trailing-space,space-before-tab,tabwidth=4
+        autocrlf = input
+        editor = vim
+
+[alias]
+        d = diff
+        s = status -sb
+        st = status
+        b = branch
+        br = branch
+        lbr = b -a
+        c = commit -vp
+        ci = commit -vp
+        tree = !sh -c 'tig' - #remove if not using tig, uncomment line above
+        glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        glogs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+        pager = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[user]
+	email = christopher.batey@gmail.com
+	name = Christopher Batey
+	initials = cb
+
+[push]
+        default = simple
