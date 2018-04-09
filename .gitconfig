@@ -2,6 +2,7 @@
         whitespace = trailing-space,space-before-tab,tabwidth=4
         autocrlf = input
         editor = vim
+	excludesfile = /home/chbatey/.gitignore
 
 [alias]
         d = diff

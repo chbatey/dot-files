@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git docker tmux)
+plugins=(git docker tmux kubectl)
 
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chbatey/.local/bin:/home/chbatey/bin:/home/chbatey/.local/bin:/home/chbatey/bin"
 
@@ -44,7 +44,7 @@ alias info="info --vi-keys"
 
 # Java
 export JAVA_HOME=/usr/java/default/ 
-export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/
+export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler
 export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
 
 # OCaml
@@ -55,3 +55,8 @@ export PATH="$HOME/.linuxbrew/bin:$PATH"
 
 alias xclip="xclip -selection c"
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/opt/protobuf@2.5/bin:$PATH"
+
+# Gatling
+PATH="/opt/gatling/bin/:$PATH"
+
