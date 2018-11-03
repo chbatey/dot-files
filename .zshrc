@@ -8,12 +8,11 @@ export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/
 source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-# Golang
-export GOPATH=~/gowork/
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:~/.cabal/bin
-export PATH=$PATH:/opt/go/bin
+export PATH=$PATH:/usr/local/bin
 
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/home/chbatey/go/
 
 # Vim sttings
 bindkey -v
@@ -44,8 +43,9 @@ alias info="info --vi-keys"
 
 # Java
 export JAVA_HOME=/usr/java/default/ 
-export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler
+export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler:~/apps/visualvm/bin/
 export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
+export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M"
 
 # OCaml
 . /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -60,3 +60,12 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/protobuf@2.5/bin:$PATH"
 # Gatling
 PATH="/opt/gatling/bin/:$PATH"
 
+
+# added by travis gem
+[ -f /home/chbatey/.travis/travis.sh ] && source /home/chbatey/.travis/travis.sh
+
+[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh"
+
+# Kubernetes
+
+export PATH=$PATH:~/apps/bin/
