@@ -34,7 +34,6 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'enomsg/vim-haskellConcealPlus'
 
 " Scala 
-Plugin 'ensime/ensime-vim'
 Plugin 'derekwyatt/vim-scala'
 
 " General
