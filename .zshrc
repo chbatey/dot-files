@@ -1,7 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
+echo "Initialising plugins"
 plugins=(git docker tmux)
+echo "Plugins initialised"
 
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chbatey/.local/bin:/home/chbatey/bin:/home/chbatey/.local/bin:/home/chbatey/bin"
 
@@ -46,6 +48,8 @@ export JAVA_HOME=/usr/java/default/
 export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler:~/apps/visualvm/bin/
 export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
 export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M"
+# May need built / version updated
+alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
 
 # OCaml
 . /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -69,3 +73,7 @@ PATH="/opt/gatling/bin/:$PATH"
 # Kubernetes
 
 export PATH=$PATH:~/apps/bin/
+if [ /home/chbatey/apps/bin//kubectl ]; then source <(kubectl completion zsh); fi
+
+# Nix
+. /home/chbatey/.nix-profile/etc/profile.d/nix.sh

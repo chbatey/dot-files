@@ -4,3 +4,4 @@ Sandbox.scala
 target
 *.swp
 logs
+.sbtopts
