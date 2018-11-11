@@ -1,14 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-echo "Initialising plugins"
 plugins=(git docker tmux)
-echo "Plugins initialised"
 
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chbatey/.local/bin:/home/chbatey/bin:/home/chbatey/.local/bin:/home/chbatey/bin"
 
 source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
 
 export PATH=$PATH:/usr/local/bin
 
@@ -50,6 +49,8 @@ export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
 export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M"
 # May need built / version updated
 alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
+[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh"
+jabba use 1.8.192
 
 # OCaml
 . /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -68,12 +69,11 @@ PATH="/opt/gatling/bin/:$PATH"
 # added by travis gem
 [ -f /home/chbatey/.travis/travis.sh ] && source /home/chbatey/.travis/travis.sh
 
-[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh"
 
 # Kubernetes
 
 export PATH=$PATH:~/apps/bin/
-if [ /home/chbatey/apps/bin//kubectl ]; then source <(kubectl completion zsh); fi
+# if [ /home/chbatey/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 # Nix
-. /home/chbatey/.nix-profile/etc/profile.d/nix.sh
+[ -f ~/.nix.profile/ ] && /home/chbatey/.nix-profile/etc/profile.d/nix.sh
