@@ -53,7 +53,7 @@ alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plu
 jabba use 1.8.192
 
 # OCaml
-. /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Linux brew
 export PATH="$HOME/.linuxbrew/bin:$PATH"
@@ -76,4 +76,4 @@ export PATH=$PATH:~/apps/bin/
 # if [ /home/chbatey/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 # Nix
-[ -f ~/.nix.profile/ ] && /home/chbatey/.nix-profile/etc/profile.d/nix.sh
+[ -f ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
