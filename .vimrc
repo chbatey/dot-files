@@ -199,6 +199,5 @@ nnoremap <C-H> <C-W><C-H>
 " Scala
 
 :let maplocalleader = "\\"
-autocmd BufWritePost *.scala silent :EnTypeCheck
 nnoremap <localleader>t :EnTypeCheck<CR>
 au FileType scala nnoremap <localleader>df :EnDeclaration<CR>

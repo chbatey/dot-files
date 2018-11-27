@@ -43,14 +43,12 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
 alias info="info --vi-keys"
 
 # Java
-export JAVA_HOME=/usr/java/default/ 
 export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler:~/apps/visualvm/bin/
 export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
-export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M"
+export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler"
 # May need built / version updated
 alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
-[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh"
-jabba use 1.8.192
+[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use openjdk@1.11.0-1
 
 # OCaml
 source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -77,3 +75,7 @@ export PATH=$PATH:~/apps/bin/
 
 # Nix
 [ -f ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh
+
+[ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
+
+[ -s "/home/chbatey/.scm_breeze/scm_breeze.sh" ] && source "/home/chbatey/.scm_breeze/scm_breeze.sh"
