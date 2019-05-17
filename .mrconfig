@@ -143,3 +143,6 @@ checkout = git clone 'git@github.com:real-logic/aeron.git' 'aeron'
 
 [dev/os/aeron-sample]
 checkout = git clone 'git@github.com:chbatey/aeron-sample.git' 'aeron-sample'
+
+[dev/lightbend/cinnamon-sandbox]
+checkout = git clone 'git@github.com:chbatey/cinnamon-sandbox.git' 'cinnamon-sandbox'
