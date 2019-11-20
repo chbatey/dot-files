@@ -146,3 +146,6 @@ checkout = git clone 'git@github.com:chbatey/aeron-sample.git' 'aeron-sample'
 
 [dev/lightbend/cinnamon-sandbox]
 checkout = git clone 'git@github.com:chbatey/cinnamon-sandbox.git' 'cinnamon-sandbox'
+
+[dev/os/kafka/kafka]
+checkout = git clone 'git@github.com:apache/kafka.git' 'kafka'
