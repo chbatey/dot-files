@@ -8,7 +8,6 @@ export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/
 source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-
 export PATH=$PATH:/usr/local/bin
 
 # Golang
@@ -53,7 +52,7 @@ export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M -XX:+Unloc
 alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
 
 # java version manager
-[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use openjdk@~1.11.0
+[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use adopt@~1.11.0
 
 # OCaml
 source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
