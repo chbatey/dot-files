@@ -1,5 +1,0 @@
-[repositories]
-local
-local-maven: http://localhost/artifactory/maven 
-local-sbt: http://localhost/artifactory/sbt 
-local-ivy: http://localhost/artifactory/ivy 
