@@ -56,7 +56,7 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/"))
+(setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/" "~/dev/os/akka/akka-samples/"))
 (projectile-add-known-project "~/Dropbox/org")
 
 
