@@ -2,7 +2,14 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; refresh' after modifying this file!
+(setq-default fill-column 120)
+(setq doom-theme 'doom-one)
+(setq doom-font (font-spec :family "Iosevka" :size 16 :adstyle "Regular"))
+(setq doom-unicode-font (font-spec :family "Noto Sans Mono" :size 16))
+(setq doom-themes-treemacs-enable-variable-pitch nil)
 
+;; Enable auto save
+(setq auto-save-default t)
 
 ;; These are used for a number of things, particularly for GPG configuration,
 ;; some email clients, file templates and snippets.
@@ -26,7 +33,7 @@
 (setq doom-theme 'doom-one)
 
 ;; If you intend to use org, it is recommended you change this!
-(setq org-directory "~/org/")
+(setq org-directory "~/Dropbox/org/")
 
 ;; If you want to change the style of line numbers, change this to `relative' or
 ;; `nil' to disable it:
@@ -50,6 +57,8 @@
 ;; they are implemented.
 
 (setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/"))
+(projectile-add-known-project "~/Dropbox/org")
+
 
 ;; extra key binds for org mode
 
