@@ -11,6 +11,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/snap/bin
 
+# Emacs
+
+path+=('/home/chbatey/.emacs.d/bin/')
+
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/home/chbatey/go/

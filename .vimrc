@@ -37,19 +37,20 @@ Plugin 'enomsg/vim-haskellConcealPlus'
 Plugin 'derekwyatt/vim-scala'
 
 " General
-Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
-
-Plugin 'vim-scripts/VimClojure'
 Plugin 'tpope/vim-fireplace'
-
 Plugin 'vim-airline/vim-airline'
 
+" Trying some new plugins by jsravn
+Plugin 'yangmillstheory/vim-snipe'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()          
 filetype plugin indent on 
 " Vundle is now finished
+
 
 let mapleader = "\<space>"
 let maplocalleader = "\\"
@@ -57,8 +58,6 @@ inoremap jk <esc>
 
 colorscheme badwolf 
 syntax on
-
-noremap <Leader>s :update<CR>
 
 set number
 set nowrap
@@ -86,6 +85,10 @@ set completeopt=menuone,menu,longest
 " Folding
 set foldmethod=indent
 set foldlevel=99
+
+" easy motion
+" By default its leader mappings are leader leader, set back to just leader
+map <Leader> <Plug>(easymotion-prefix)
 
 " Haskell
 
@@ -158,7 +161,6 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
 
 " leader mappings
-nnoremap <Leader>w :w<CR>
 
 " Added for Golang
 nmap <F8> :TagbarToggle<CR>

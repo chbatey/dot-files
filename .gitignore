@@ -1,7 +1,10 @@
 sandbox
 Sandbox.scala
+Sandbox.java
+JavaSandbox.java
 .idea
 target
 *.swp
 logs
 .sbtopts
+*.iml
