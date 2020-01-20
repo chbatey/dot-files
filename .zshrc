@@ -52,7 +52,7 @@ export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M -XX:+Unloc
 alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
 
 # java version manager
-[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use adopt@~1.11.0
+[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use adopt@~1.11.0-5
 
 # OCaml
 source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
