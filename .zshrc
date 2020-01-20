@@ -9,10 +9,12 @@ source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/snap/bin
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/home/chbatey/go/
+export PATH=$PATH:$GOPATH/bin/
 
 # Vim sttings
 bindkey -v
@@ -77,3 +79,10 @@ export PATH=$PATH:~/apps/bin/
 [ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
 
 [ -s "/home/chbatey/.scm_breeze/scm_breeze.sh" ] && source "/home/chbatey/.scm_breeze/scm_breeze.sh"
+
+# Erlang
+PATH=/home/chbatey/.cache/rebar3/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
