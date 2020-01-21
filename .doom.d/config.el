@@ -85,7 +85,8 @@
                                   (?I . "Important"))))
 
 ;; sbt/scala/metals
-
-(add-hook 'sbt-mode
-       (lambda ()
-         (local-set-key (kbd "C-x '") 'sbt-run-previous-command)))
+(after! sbt-mode
+   ;; use sbt-run-previous-command to re-compile your code after changes
+  (map! :map scala-mode-map
+        :n "C-x '" #'sbt-run-previous-command
+        ))
