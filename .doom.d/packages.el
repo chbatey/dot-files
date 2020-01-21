@@ -52,3 +52,4 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! org-super-agenda)
+(package! org-fancy-priorities)

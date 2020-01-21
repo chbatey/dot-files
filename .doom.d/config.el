@@ -32,7 +32,6 @@
 ;; `load-theme' function. These are the defaults.
 (setq doom-theme 'doom-one)
 
-;; If you intend to use org, it is recommended you change this!
 (setq org-directory "~/Dropbox/org/")
 
 ;; If you want to change the style of line numbers, change this to `relative' or
@@ -56,14 +55,37 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/" "~/dev/os/akka/akka-samples/"))
+(setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/akka-samples/"))
 (projectile-add-known-project "~/Dropbox/org")
+(projectile-add-known-project "~/dev/os/akka/akka/")
+
+(after! projectile
+  (setq projectile-project-root-files-bottom-up '(".project")))
 
 
+;; org mode
 ;; extra key binds for org mode
-
 (after! org
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup
         ))
+
+(def-package! org-fancy-priorities
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+ (setq org-fancy-priorities-list '((?A . "❗")
+                                  (?B . "⬆")
+                                  (?C . "⬇")
+                                  (?D . "☕")
+                                  (?1 . "⚡")
+                                  (?2 . "⮬")
+                                  (?3 . "⮮")
+                                  (?4 . "☕")
+                                  (?I . "Important"))))
+
+;; sbt/scala/metals
+
+(add-hook 'sbt-mode
+       (lambda ()
+         (local-set-key (kbd "C-x '") 'sbt-run-previous-command)))
