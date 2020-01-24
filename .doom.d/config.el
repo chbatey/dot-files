@@ -4,8 +4,8 @@
 ;; refresh' after modifying this file!
 (setq-default fill-column 120)
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "Iosevka" :size 16 :adstyle "Regular"))
-(setq doom-unicode-font (font-spec :family "Noto Sans Mono" :size 16))
+;; (setq doom-font (font-spec :family "Iosevka" :size 16 :adstyle "Regular"))
+;; (setq doom-unicode-font (font-spec :family "Noto Sans Mono" :size 16))
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
 ;; Enable auto save
@@ -58,6 +58,8 @@
 (setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/akka-samples/"))
 (projectile-add-known-project "~/Dropbox/org")
 (projectile-add-known-project "~/dev/os/akka/akka/")
+(projectile-add-known-project "~/dev/os/akka/akka-persistence-cassandra/")
+(projectile-add-known-project "~/dev/os/akka/akka-cassandra/")
 
 (after! projectile
   (setq projectile-project-root-files-bottom-up '(".project")))
@@ -90,3 +92,5 @@
   (map! :map scala-mode-map
         :n "C-x '" #'sbt-run-previous-command
         ))
+
+(auto-save-visited-mode)
