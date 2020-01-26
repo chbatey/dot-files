@@ -94,3 +94,6 @@
         ))
 
 (auto-save-visited-mode)
+
+;; start in full frame mode
+(toggle-frame-fullscreen)

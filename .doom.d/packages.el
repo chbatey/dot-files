@@ -53,4 +53,3 @@
 
 (package! org-super-agenda)
 (package! org-fancy-priorities)
-(package! kbd)
