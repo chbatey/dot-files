@@ -4,8 +4,8 @@
 ;; refresh' after modifying this file!
 (setq-default fill-column 120)
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "Iosevka" :size 16 :adstyle "Regular"))
-(setq doom-unicode-font (font-spec :family "Noto Sans Mono" :size 16))
+;; (setq doom-font (font-spec :family "Iosevka" :size 16 :adstyle "Regular"))
+;; (setq doom-unicode-font (font-spec :family "Noto Sans Mono" :size 16))
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
 ;; Enable auto save
@@ -25,7 +25,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 14))
+(setq doom-font (font-spec :family "monospace" :size 12))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -54,10 +54,13 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+;;
 
 (setq projectile-project-search-path '("~/blog/" "~/dev/os/akka/akka-samples/"))
 (projectile-add-known-project "~/Dropbox/org")
 (projectile-add-known-project "~/dev/os/akka/akka/")
+(projectile-add-known-project "~/dev/os/akka/akka-persistence-cassandra/")
+(projectile-add-known-project "~/dev/os/akka/akka-cassandra/")
 
 (after! projectile
   (setq projectile-project-root-files-bottom-up '(".project")))
@@ -89,4 +92,16 @@
    ;; use sbt-run-previous-command to re-compile your code after changes
   (map! :map scala-mode-map
         :n "C-x '" #'sbt-run-previous-command
+        :n "C-x c" #'sbt-command
         ))
+
+(defun scala-setup ()
+  (setq tab-witdh 2))
+
+(add-hook 'scala-mode-hook 'scala-setup)
+
+
+(auto-save-visited-mode)
+
+;; start in full frame mode
+(toggle-frame-fullscreen)

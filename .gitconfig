@@ -1,7 +1,7 @@
 [core]
         whitespace = trailing-space,space-before-tab,tabwidth=4
         editor = vim
-	excludesfile = /home/chbatey/.gitignore
+	excludesfile = ~/.gitignore
         autocrlf = false
 
 [alias]
@@ -47,5 +47,7 @@
 
 [push]
         default = simple
+[merge]
+	conflictStyle = diff3
 [github]
 	user = chbatey

@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(git docker tmux)
 
-export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chbatey/.local/bin:/home/chbatey/bin:/home/chbatey/.local/bin:/home/chbatey/bin"
+export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/bin"
 
 source $ZSH/oh-my-zsh.sh
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
@@ -13,11 +13,11 @@ export PATH=$PATH:/snap/bin
 
 # Emacs
 
-path+=('/home/chbatey/.emacs.d/bin/')
+path+=('$HOME/.emacs.d/bin/')
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/chbatey/go/
+export GOPATH=$HOME/go/
 export PATH=$PATH:$GOPATH/bin/
 
 # Vim sttings
@@ -55,10 +55,10 @@ export PATH=$PATH:~/dev/os/perf/perf-map-agent/bin/:~/dev/os/perf/async-profiler
 export FLAMEGRAPH_DIR=~/dev/os/perf/FlameGraph/
 export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler"
 # May need built / version updated
-alias jsk="java -jar /home/chbatey/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
+alias jsk="java -jar $HOME/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
 
 # java version manager
-[ -s "/home/chbatey/.jabba/jabba.sh" ] && source "/home/chbatey/.jabba/jabba.sh" && jabba use adopt@~1.11.0-5
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh" && jabba use adopt@~1.11.0-6
 
 # OCaml
 source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -72,21 +72,24 @@ PATH="/opt/gatling/bin/:$PATH"
 
 
 # added by travis gem
-[ -f /home/chbatey/.travis/travis.sh ] && source /home/chbatey/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 
 # Kubernetes
 
 export PATH=$PATH:~/apps/bin/
-# if [ /home/chbatey/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# if [ $HOME/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
+# different locations for mac/linux
 [ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-[ -s "/home/chbatey/.scm_breeze/scm_breeze.sh" ] && source "/home/chbatey/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # Erlang
-PATH=/home/chbatey/.cache/rebar3/bin:$PATH
+PATH=$HOME/.cache/rebar3/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+[ -s "$HOME/.rbenv/" ] && eval "$(rbenv init -)"
+
+[ -s "/Users/christopherbatey/.scm_breeze/scm_breeze.sh" ] && source "/Users/christopherbatey/.scm_breeze/scm_breeze.sh"
+export JDK_8_HOME=/Users/christopherbatey/.jabba/jdk/adopt@1.8.0-232/Contents/Home/

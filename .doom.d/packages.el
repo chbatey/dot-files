@@ -53,4 +53,6 @@
 
 (package! org-super-agenda)
 (package! org-fancy-priorities)
-(package! kbd)
+(package! sublimity)
+(package! sublimity-scroll)
+(package! sublimity-attractive)
