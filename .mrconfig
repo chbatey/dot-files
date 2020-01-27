@@ -158,3 +158,6 @@ checkout = git clone 'git@github.com:chbatey/org.git' 'org'
 
 [dev/os/akka/akka-samples]
 checkout = git clone 'git@github.com:akka/akka-samples.git' 'akka-samples'
+
+[dev/talks/akka/six-things-in-akka-2.6]
+checkout = git clone 'git@github.com:chbatey/six-things-in-akka-2.6.git' 'six-things-in-akka-2.6'

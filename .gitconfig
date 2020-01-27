@@ -49,3 +49,5 @@
         default = simple
 [merge]
 	conflictStyle = diff3
+[github]
+	user = chbatey
