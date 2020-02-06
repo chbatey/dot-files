@@ -6,13 +6,12 @@ plugins=(git docker tmux)
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/bin"
 
 source $ZSH/oh-my-zsh.sh
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/snap/bin
+export PATH=$PATH:~/apps/bin/
 
 # Emacs
-
 path+=('$HOME/.emacs.d/bin/')
 
 # Golang
@@ -57,11 +56,8 @@ export SBT_OPTS="-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M -XX:+Unloc
 # May need built / version updated
 alias jsk="java -jar $HOME/dev/os/perf/jvm-tools/sjk-plus/target/sjk-plus-0.11-SNAPSHOT.jar"
 
-# java version manager
 [ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh" && jabba use adopt@~1.11.0-6
-
-# OCaml
-source /home/cirrus/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export JDK_8_HOME="$HOME/.jabba/jdk/adopt@1.8.0-232/Contents/Home/"
 
 alias xclip="xclip -selection c"
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
@@ -70,26 +66,22 @@ export PATH="/home/linuxbrew/.linuxbrew/opt/protobuf@2.5/bin:$PATH"
 # Gatling
 PATH="/opt/gatling/bin/:$PATH"
 
-
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-
-# Kubernetes
-
-export PATH=$PATH:~/apps/bin/
-# if [ $HOME/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# This is slow so disable
+#if [ $HOME/apps/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 # different locations for mac/linux
 [ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # Erlang
 PATH=$HOME/.cache/rebar3/bin:$PATH
+
+# Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 [ -s "$HOME/.rbenv/" ] && eval "$(rbenv init -)"
 
-[ -s "/Users/christopherbatey/.scm_breeze/scm_breeze.sh" ] && source "/Users/christopherbatey/.scm_breeze/scm_breeze.sh"
-export JDK_8_HOME=/Users/christopherbatey/.jabba/jdk/adopt@1.8.0-232/Contents/Home/
