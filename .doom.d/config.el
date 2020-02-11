@@ -93,12 +93,23 @@
   (map! :map scala-mode-map
         :n "C-x '" #'sbt-run-previous-command
         :n "C-x c" #'sbt-command
+        :n "C-SPC" #'completion-at-point
         ))
 
 (defun scala-setup ()
   (setq tab-witdh 2))
 
 (add-hook 'scala-mode-hook 'scala-setup)
+
+;; Fly check error bindings
+(map! :leader
+      :map (flycheck-mode-map)
+      :desc "next error" "e n" #'flycheck-next-error
+      :desc "previous error" "e p" #'flycheck-previous-error
+      :desc "previous error" "e a" #'lsp-ui-flycheck-list
+      :desc "type info with metals" "c h" #'lsp-ui-doc-show
+ )
+
 
 
 (auto-save-visited-mode)
