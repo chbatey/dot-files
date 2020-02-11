@@ -161,3 +161,6 @@ checkout = git clone 'git@github.com:akka/akka-samples.git' 'akka-samples'
 
 [dev/talks/akka/six-things-in-akka-2.6]
 checkout = git clone 'git@github.com:chbatey/six-things-in-akka-2.6.git' 'six-things-in-akka-2.6'
+
+[.oh-my-zsh/custom/themes/powerlevel10k]
+checkout = git clone 'https://github.com/romkatv/powerlevel10k.git' 'powerlevel10k'
