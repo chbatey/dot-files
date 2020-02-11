@@ -8,6 +8,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
+# Syntax highlighting must be the last
 plugins=(git docker tmux zsh-autosuggestions zsh-syntax-highlighting)
 
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/bin"
@@ -96,7 +97,6 @@ PATH=$HOME/.cache/rebar3/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 [ -s "$HOME/.rbenv/" ] && eval "$(rbenv init -)"
 
-<<<<<<< HEAD
 [ -s "/Users/christopherbatey/.scm_breeze/scm_breeze.sh" ] && source "/Users/christopherbatey/.scm_breeze/scm_breeze.sh"
 export JDK_8_HOME=/Users/christopherbatey/.jabba/jdk/adopt@1.8.0-232/Contents/Home/
 

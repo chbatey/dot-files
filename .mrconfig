@@ -11,45 +11,15 @@ checkout = git clone 'git@github.com:chbatey/kafka-unit.git' 'kafka-unit'
 [dev/os/scassandra/scassandra-server]
 checkout = git clone 'git@github.com:scassandra/scassandra-server.git' 'scassandra-server'
 
-[dev/os/scassandra/scassandra-example]
-checkout = git clone 'git@github.com:chbatey/scassandra-example-java.git' 'scassandra-example'
-
 [dev/chbatey.github.io]
 checkout = git clone 'git@github.com:chbatey/chbatey.github.io.git' 'chbatey.github.io'
 
 [dev/os/cassandra-1]
 checkout = git clone 'git@github.com:chbatey/cassandra-1.git' 'cassandra-1'
 
-[dev/learn/hackerrank]
-checkout = git clone 'git@bitbucket.org:chbatey/hackerrank.git' 'hackerrank'
-
 [.vim/bundle/Vundle.vim]
 checkout = git clone 'https://github.com/VundleVim/Vundle.vim.git' 'Vundle.vim'
 skip = [ "$1" == push ]
-
-[dev/examples/jds]
-checkout = git clone 'git@bitbucket.org:chbatey/jds.git' 'jds'
-
-[dev/todo]
-checkout = git clone 'git@bitbucket.org:chbatey/todo.git' 'todo'
-
-[dev/examples/performance/java-examples]
-checkout = git clone 'git@bitbucket.org:chbatey/java-perf-examples.git' 'java-examples'
-
-[dev/learn/haskell/hb2]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/haskell-book.git' 'hb2'
-
-[dev/learn/cpp/monitoring/proc-tools]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/cpp-course.git' 'proc-tools'
-
-[dev/learn/tapl]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/programming.git' 'tapl'
-
-[dev/learn/scala/fpinscala]
-checkout = git clone 'git@github.com:fpinscala/fpinscala.git' 'fpinscala'
-
-[dev/learn/concurrency/mpp]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/mpp.git' 'mpp'
 
 [dev/learn/akka/gc-log-parser]
 checkout = git clone 'git@github.com:chbatey/java9-gc-log-parser.git' 'gc-log-parser'
@@ -60,20 +30,11 @@ checkout = git clone 'git@github.com:brendangregg/FlameGraph.git' 'FlameGraph'
 [dev/os/perf/perf-map-agent]
 checkout = git clone 'git@github.com:chbatey/perf-map-agent.git' 'perf-map-agent'
 
-[dev/learn/akka/akka-streams-cassandra]
-checkout = git clone 'git@github.com:chbatey/akka-streams-cassandra.git' 'akka-streams-cassandra'
-
 [dev/os/akka/alpakka]
 checkout = git clone 'git@github.com:chbatey/alpakka.git' 'alpakka'
 
 [dev/os/akka/akka-persistence-cassandra]
 checkout = git clone 'git@github.com:chbatey/akka-persistence-cassandra.git' 'akka-persistence-cassandra'
-
-[dev/learn/scala/fp-in-scala-book]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/fp-scala-book.git' 'fp-in-scala-book'
-
-[dev/learn/scala/perf/scala-perf-examples]
-checkout = git clone 'ssh://git@bitbucket.org/chbatey/scala-perf-examples.git' 'scala-perf-examples'
 
 [dev/os/scala/sbt/sbt-jmh]
 checkout = git clone 'git@github.com:chbatey/sbt-jmh.git' 'sbt-jmh'
@@ -84,18 +45,6 @@ checkout = git clone 'git@github.com:chbatey/akka.git' 'akka'
 [dev/os/akka/akka-http]
 checkout = git clone 'git@github.com:chbatey/akka-http.git' 'akka-http'
 
-[dev/os/akka/akka-typed-examples]
-checkout = git clone 'git@github.com:chbatey/akka-typed-examples.git' 'akka-typed-examples'
-
-[dev/os/akka/reactive-kafka]
-checkout = git clone 'git@github.com:akka/reactive-kafka.git' 'reactive-kafka'
-
-[dev/docker/kafka-docker]
-checkout = git clone 'git@github.com:wurstmeister/kafka-docker.git' 'kafka-docker'
-
-[dev/docker/docker-stuff]
-checkout = git clone 'git@github.com:chbatey/docker-stuff.git' 'docker-stuff'
-
 [dev/os/akka/apps]
 checkout = git clone 'git@github.com:akka/apps.git' 'apps'
 
@@ -104,9 +53,6 @@ checkout = git clone 'git@github.com:chbatey/akka-management.git' 'akka-manageme
 
 [dev/os/cassandra-java-driver]
 checkout = git clone 'git@github.com:datastax/java-driver.git' 'cassandra-java-driver'
-
-[dev/os/akka/akka-streams-examples]
-checkout = git clone 'git@github.com:chbatey/akka-streams-flow-control-example.git' 'akka-streams-examples'
 
 [dev/os/perf/async-profiler]
 checkout = git clone 'git@github.com:jvm-profiling-tools/async-profiler.git' 'async-profiler'
@@ -141,12 +87,6 @@ checkout = git clone 'git@github.com:akka/akka-persistence-couchbase.git' 'akka-
 [dev/os/aeron]
 checkout = git clone 'git@github.com:real-logic/aeron.git' 'aeron'
 
-[dev/os/aeron-sample]
-checkout = git clone 'git@github.com:chbatey/aeron-sample.git' 'aeron-sample'
-
-[dev/lightbend/cinnamon-sandbox]
-checkout = git clone 'git@github.com:chbatey/cinnamon-sandbox.git' 'cinnamon-sandbox'
-
 [dev/os/kafka/kafka]
 checkout = git clone 'git@github.com:apache/kafka.git' 'kafka'
 
@@ -164,3 +104,12 @@ checkout = git clone 'git@github.com:chbatey/six-things-in-akka-2.6.git' 'six-th
 
 [.oh-my-zsh/custom/themes/powerlevel10k]
 checkout = git clone 'https://github.com/romkatv/powerlevel10k.git' 'powerlevel10k'
+
+[.oh-my-zsh/custom/plugins/zsh-autosuggestions]
+checkout = git clone 'https://github.com/zsh-users/zsh-autosuggestions' 'zsh-autosuggestions'
+
+[.oh-my-zsh/custom/plugins/zsh-syntax-highlighting]
+checkout = git clone 'https://github.com/zsh-users/zsh-syntax-highlighting.git' 'zsh-syntax-highlighting'
+
+[.eendroroy-alacritty-theme]
+checkout = git clone 'https://github.com/eendroroy/alacritty-theme.git' '.eendroroy-alacritty-theme'
