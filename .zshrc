@@ -1,7 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git docker tmux)
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git docker tmux zsh-autosuggestions zsh-syntax-highlighting)
 
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/bin"
 
@@ -14,6 +21,10 @@ export PATH=$PATH:/snap/bin
 # Emacs
 
 path+=('$HOME/.emacs.d/bin/')
+
+# Python on Mac
+
+path+=('$HOME/Library/Python/3.7/bin/')
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
@@ -93,3 +104,14 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 [ -s "/Users/christopherbatey/.scm_breeze/scm_breeze.sh" ] && source "/Users/christopherbatey/.scm_breeze/scm_breeze.sh"
 export JDK_8_HOME=/Users/christopherbatey/.jabba/jdk/adopt@1.8.0-232/Contents/Home/
+
+# Alactritty themes
+function dark() {
+  alacritty-colorscheme -C ~/.eendroroy-alacritty-theme/themes  -t solarized_dark.yaml
+}
+function light() {
+  alacritty-colorscheme -C ~/.eendroroy-alacritty-theme/themes  -t solarized_light.yaml
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
