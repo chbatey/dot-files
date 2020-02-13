@@ -10,6 +10,11 @@
 
 ;; Enable auto save
 (setq auto-save-default t)
+(add-hook! '(doom-switch-window-hook
+             doom-switch-buffer-hook
+             doom-switch-frame-hook) ; frames
+  (save-some-buffers t))
+(auto-save-visited-mode)
 
 ;; These are used for a number of things, particularly for GPG configuration,
 ;; some email clients, file templates and snippets.
@@ -30,7 +35,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-solarized-light)
 
 (setq org-directory "~/Dropbox/org/")
 
@@ -60,7 +65,6 @@
 (projectile-add-known-project "~/Dropbox/org")
 (projectile-add-known-project "~/dev/os/akka/akka/")
 (projectile-add-known-project "~/dev/os/akka/akka-persistence-cassandra/")
-(projectile-add-known-project "~/dev/os/akka/akka-cassandra/")
 
 (after! projectile
   (setq projectile-project-root-files-bottom-up '(".project")))
@@ -71,8 +75,15 @@
 (after! org
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
-        :n "M-k" #'org-metaup
-        ))
+        :n "M-k" #'org-metaup)
+)
+
+;; org and mu4e create links to emails
+(require 'org-mu4e)
+(setq org-mu4e-link-query-in-headers-mode nil)
+(setq org-capture-templates
+    '(("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Tasks")
+       "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n  link -> %a  \n")))
 
 (def-package! org-fancy-priorities
   :hook (org-mode . org-fancy-priorities-mode)
@@ -93,13 +104,33 @@
   (map! :map scala-mode-map
         :n "C-x '" #'sbt-run-previous-command
         :n "C-x c" #'sbt-command
+        :n "C-x t" #'sbt-test-fuzzy
         :n "C-SPC" #'completion-at-point
         ))
+
+(defun sbt-test-fuzzy ()
+  "Enter part of a test name"
+  (interactive)
+  (sbt-command (concat "testOnly *"  (read-string "Enter test name: ") "*"))
+)
 
 (defun scala-setup ()
   (setq tab-witdh 2))
 
 (add-hook 'scala-mode-hook 'scala-setup)
+
+(after! lsp-mode
+  (defun lsp-signature-activate ()
+    "Activate signature help.
+It will show up only if current point has signature help."
+    (interactive)
+    (setq-local lsp--last-signature nil)
+    (setq-local lsp--last-signature-index nil)
+    (setq-local lsp--last-signature-buffer nil)
+    (add-hook 'lsp-on-idle-hook #'lsp-signature nil t)
+    (add-hook 'post-command-hook #'lsp-signature-maybe-stop)
+    (lsp-signature-mode t))
+        )
 
 ;; Fly check error bindings
 (map! :leader
@@ -108,11 +139,41 @@
       :desc "previous error" "e p" #'flycheck-previous-error
       :desc "previous error" "e a" #'lsp-ui-flycheck-list
       :desc "type info with metals" "c h" #'lsp-ui-doc-show
+      :desc "remove type info" "c n" #'lsp-ui-doc-hide
  )
 
+;; clear cache after checking out a new branch
+(defun +private/projectile-invalidate-cache (&rest _args)
+  (projectile-invalidate-cache nil))
+(advice-add 'magit-checkout
+            :after #'+private/projectile-invalidate-cache)
+(advice-add 'magit-branch-and-checkout
+            :after #'+private/projectile-invalidate-cache)
 
 
-(auto-save-visited-mode)
+;; Treemacs
+(after! treemacs
+  (setq treemacs-width 50))
 
 ;; start in full frame mode
 (toggle-frame-fullscreen)
+
+(set-email-account! "personal-gmail"
+  '((mu4e-sent-folder       . "/personal-gmail/Sent Mail")
+    (mu4e-drafts-folder     . "/personal-gmail/Drafts")
+    (mu4e-trash-folder      . "/personal-gmail/Trash")
+    (mu4e-refile-folder     . "/personal-gmail/All Mail")
+    (smtpmail-smtp-user     . "christopher.batey@gmail.com")
+    (user-mail-address      . "christopher.batey@gmail.com")
+    (mu4e-compose-signature . "---\nChristopher Batey"))
+  t)
+
+(set-email-account! "lb-gmail"
+  '((mu4e-sent-folder       . "/lb-gmail/Sent Mail")
+    (mu4e-drafts-folder     . "/lb-gmail/Drafts")
+    (mu4e-trash-folder      . "/lb-gmail/Trash")
+    (mu4e-refile-folder     . "/lb-gmail/All Mail")
+    (smtpmail-smtp-user     . "christopher.batey@lightbend.com")
+    (user-mail-address      . "christopher.batey@lightbend.com")
+    (mu4e-compose-signature . "---\nChristopher Batey"))
+  t)
