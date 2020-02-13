@@ -29,6 +29,7 @@ path+=('$HOME/Library/Python/3.7/bin/')
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go/
+export GO111MODULE=auto
 export PATH=$PATH:$GOPATH/bin/
 
 # Vim sttings
