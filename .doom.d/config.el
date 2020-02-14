@@ -155,8 +155,6 @@ It will show up only if current point has signature help."
 (after! treemacs
   (setq treemacs-width 50))
 
-;; start in full frame mode
-(toggle-frame-fullscreen)
 
 (set-email-account! "personal-gmail"
   '((mu4e-sent-folder       . "/personal-gmail/Sent Mail")
@@ -164,6 +162,7 @@ It will show up only if current point has signature help."
     (mu4e-trash-folder      . "/personal-gmail/Trash")
     (mu4e-refile-folder     . "/personal-gmail/All Mail")
     (smtpmail-smtp-user     . "christopher.batey@gmail.com")
+    (smtpmail-smtp-server   . "smtp.gmail.com")
     (user-mail-address      . "christopher.batey@gmail.com")
     (mu4e-compose-signature . "---\nChristopher Batey"))
   t)
@@ -174,6 +173,11 @@ It will show up only if current point has signature help."
     (mu4e-trash-folder      . "/lb-gmail/Trash")
     (mu4e-refile-folder     . "/lb-gmail/All Mail")
     (smtpmail-smtp-user     . "christopher.batey@lightbend.com")
+    (smtpmail-smtp-service  . 587)
+    (smtpmail-smtp-server   . "smtp.gmail.com")
     (user-mail-address      . "christopher.batey@lightbend.com")
     (mu4e-compose-signature . "---\nChristopher Batey"))
   t)
+
+;; start in full frame mode
+(toggle-frame-fullscreen)

@@ -1,0 +1,126 @@
+IMAPAccount personal-gmail
+Host imap.gmail.com
+User christopher.batey@gmail.com
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.mbsyncpass.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore personal-gmail-remote
+Account personal-gmail
+
+MaildirStore personal-gmail-local
+Path ~/.mail/personal-gmail/
+Inbox ~/.mail/personal-gmail/INBOX
+SubFolders Verbatim
+
+Channel personal-gmail-catch-all
+Master :personal-gmail-remote:
+Slave :personal-gmail-local:
+Patterns * ![G*
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 1000
+
+Channel personal-gmail-trash
+Master :personal-gmail-remote:"[Google Mail]/Bin"
+Slave :personal-gmail-local:"Trash"
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 1000
+
+Channel personal-gmail-sent
+Master :personal-gmail-remote:"[Google Mail]/Sent Mail"
+Slave :personal-gmail-local:"Sent Mail"
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 1000
+
+Channel personal-gmail-all
+Master :personal-gmail-remote:"[Google Mail]/All Mail"
+Slave :personal-gmail-local:"All Mail"
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 1000
+
+Channel personal-gmail-starred
+Master :personal-gmail-remote:"[Google Mail]/Starred"
+Slave :personal-gmail-local:"Starred"
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 1000
+
+Group personal-gmail
+Channel personal-gmail-catch-all
+Channel personal-gmail-trash
+Channel personal-gmail-sent
+Channel personal-gmail-all
+Channel personal-gmail-starred
+
+
+IMAPAccount lb-gmail
+Host imap.gmail.com
+User christopher.batey@lightbend.com 
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.mbsyncpasslb.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /usr/local/etc/openssl/cert.pem 
+
+IMAPStore lb-gmail-remote
+Account lb-gmail
+
+MaildirStore lb-gmail-local
+Path ~/.mail/lb-gmail/
+Inbox ~/.mail/lb-gmail/INBOX
+SubFolders Verbatim
+
+Channel lb-gmail-catch-all
+Master :lb-gmail-remote:
+Slave :lb-gmail-local:
+Patterns * ![Gmail]*
+Create Both
+Expunge Both
+SyncState *
+
+Channel lb-gmail-trash
+Master :lb-gmail-remote:"[Gmail]/Trash"
+Slave :lb-gmail-local:"Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel lb-gmail-sent
+Master :lb-gmail-remote:"[Gmail]/Sent Mail"
+Slave :lb-gmail-local:"Sent Mail"
+Create Both
+Expunge Both
+SyncState *
+
+Channel lb-gmail-all
+Master :lb-gmail-remote:"[Gmail]/All Mail"
+Slave :lb-gmail-local:"All Mail"
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 10000
+
+Channel lb-gmail-starred
+Master :lb-gmail-remote:"[Gmail]/Starred"
+Slave :lb-gmail-local:"Starred"
+Create Both
+Expunge Both
+SyncState *
+
+#Group lb-gmail
+#Channel lb-gmail-catch-all
+#Channel lb-gmail-sent
+#Channel lb-gmail-trash
+#Channel lb-gmail-all
+#Channel lb-gmail-starred
