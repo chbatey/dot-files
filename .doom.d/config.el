@@ -155,23 +155,12 @@ It will show up only if current point has signature help."
 (after! treemacs
   (setq treemacs-width 50))
 
-
-(set-email-account! "personal-gmail"
-  '((mu4e-sent-folder       . "/personal-gmail/Sent Mail")
-    (mu4e-drafts-folder     . "/personal-gmail/Drafts")
-    (mu4e-trash-folder      . "/personal-gmail/Trash")
-    (mu4e-refile-folder     . "/personal-gmail/All Mail")
-    (smtpmail-smtp-user     . "christopher.batey@gmail.com")
-    (smtpmail-smtp-server   . "smtp.gmail.com")
-    (user-mail-address      . "christopher.batey@gmail.com")
-    (mu4e-compose-signature . "---\nChristopher Batey"))
-  t)
-
-(set-email-account! "lb-gmail"
-  '((mu4e-sent-folder       . "/lb-gmail/Sent Mail")
-    (mu4e-drafts-folder     . "/lb-gmail/Drafts")
-    (mu4e-trash-folder      . "/lb-gmail/Trash")
-    (mu4e-refile-folder     . "/lb-gmail/All Mail")
+(set-email-account! "lb"
+                    '(
+    (mu4e-sent-folder       . "/lb/sent")
+    (mu4e-drafts-folder     . "/lb/drafts")
+    (mu4e-trash-folder      . "/lb/trash")
+    (mu4e-refile-folder     . "/lb/archive")
     (smtpmail-smtp-user     . "christopher.batey@lightbend.com")
     (smtpmail-smtp-service  . 587)
     (smtpmail-smtp-server   . "smtp.gmail.com")
